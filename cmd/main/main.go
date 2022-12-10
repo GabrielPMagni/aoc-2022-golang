@@ -1,29 +1,24 @@
 package main
 
 import (
-	"aoc/go2022/objects"
-	"aoc/go2022/shared"
+	"aoc/go2022/functions"
+	sharedFunctions "aoc/go2022/functions/shared"
 	"fmt"
-	"os"
 )
 
-func getFile(filePath string) *os.File {
-	file, err := os.Open(filePath)
-	shared.CheckError(err)
-	return file
-}
-
-func handleFile(inputFile *os.File, handlingMethod objects.MethodHandler) interface{} {
-	handlingMethod.Execute(inputFile)
-	return handlingMethod.GetAnswer()
-}
-
 func question1() {
-	file := getFile("inputs/input1.txt")
-	result := handleFile(file, &objects.GetBiggerCalloriesCount{})
+	file := sharedFunctions.GetFile("inputs/input1.txt")
+	result := sharedFunctions.HandleFile(file, &functions.GetBiggerCalloriesCount{})
+	fmt.Println(result)
+}
+
+func question2() {
+	file := sharedFunctions.GetFile("inputs/input1.txt")
+	result := sharedFunctions.HandleFile(file, &functions.Get3BiggerColloriesCount{})
 	fmt.Println(result)
 }
 
 func main() {
 	question1()
+	question2()
 }
