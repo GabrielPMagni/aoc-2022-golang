@@ -19,7 +19,7 @@ func compareAllLines(sl1, sl2 []string) bool {
 }
 
 func TestGetLinesFunction(t *testing.T) {
-	filePath := "test_input.text"
+	filePath := "./test_input.txt"
 
 	testSuite := []struct {
 		name          string
